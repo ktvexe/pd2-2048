@@ -15,12 +15,13 @@ public:
     void init();
   //  void reset();
     void keyPressEvent(QKeyEvent *event);
-    void appear( int Level);
+    void appear( int Level,int Color);
     void disappear( );
     void overlape(int Level1,int Level2);
     bool doexist();
-    bool checkthesame(int row1,int col1,int row2,int col2);
+
     int showlevel();
+    int showcolor();
 signals:
  //   void Click(int row,int col,char symbol);
 

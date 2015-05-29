@@ -18,5 +18,35 @@
         <file>pic/B7.png</file>
         <file>pic/B8.png</file>
         <file>pic/B9.png</file>
+        <file>pic/G0.png</file>
+        <file>pic/G1.png</file>
+        <file>pic/G2.png</file>
+        <file>pic/G3.png</file>
+        <file>pic/G4.png</file>
+        <file>pic/G5.png</file>
+        <file>pic/G6.png</file>
+        <file>pic/G7.png</file>
+        <file>pic/G8.png</file>
+        <file>pic/G9.png</file>
+        <file>pic/O0.png</file>
+        <file>pic/O1.png</file>
+        <file>pic/O2.png</file>
+        <file>pic/O3.png</file>
+        <file>pic/O4.png</file>
+        <file>pic/O5.png</file>
+        <file>pic/O6.png</file>
+        <file>pic/O7.png</file>
+        <file>pic/O8.png</file>
+        <file>pic/O9.png</file>
+        <file>pic/R0.png</file>
+        <file>pic/R1.png</file>
+        <file>pic/R2.png</file>
+        <file>pic/R3.png</file>
+        <file>pic/R4.png</file>
+        <file>pic/R5.png</file>
+        <file>pic/R6.png</file>
+        <file>pic/R7.png</file>
+        <file>pic/R8.png</file>
+        <file>pic/R9.png</file>
     </qresource>
 </RCC>
