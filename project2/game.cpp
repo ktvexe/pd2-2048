@@ -331,6 +331,10 @@ void game::keyPressEvent(QKeyEvent *event){
                      break;
                 }
         }
+        else    {
+                result *resultwindow=new result;
+                resultwindow->show();
+        }
  }
 
 
