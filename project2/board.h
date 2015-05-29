@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QPushButton>
 
-enum Direction { UP, DOWN, LEFT, RIGHT };
+
 
 class Board:public QObject
 {
