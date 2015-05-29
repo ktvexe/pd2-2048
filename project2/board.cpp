@@ -199,6 +199,13 @@ void Board::pics(int Level,int Color){
          else
                  label->setPixmap(QPixmap(":/pic/R9.png"));
         break;
+    default:
+        exist =false;
+        level =-1;
+        color = -1;
+        label->clear();
+        label->setStyleSheet("border:1px solid;");
+        break;
     }
 }
 
