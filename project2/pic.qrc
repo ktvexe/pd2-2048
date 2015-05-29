@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>2.png</file>
+        <file>11287348_927244497296222_1956864929_n.jpg</file>
+        <file>2_99.jpg</file>
+    </qresource>
+    <qresource prefix="/new/prefix2"/>
+    <qresource prefix="/">
+        <file>2.png</file>
+        <file>2_99.jpg</file>
+        <file>pic/B0.png</file>
+        <file>pic/B1.png</file>
+        <file>pic/B2.png</file>
+        <file>pic/B3.png</file>
+        <file>pic/B4.png</file>
+        <file>pic/B5.png</file>
+        <file>pic/B6.png</file>
+        <file>pic/B7.png</file>
+        <file>pic/B8.png</file>
+        <file>pic/B9.png</file>
+    </qresource>
+</RCC>
