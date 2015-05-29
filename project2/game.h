@@ -16,12 +16,14 @@ class game : public QWidget
     Q_OBJECT
 
 public:
+    int score;
      void move(QKeyEvent *event);
     explicit   game(QWidget *parent,result* res) ;
     game(QWidget *parent);
     bool checkfull();
     bool checkcolorlevel(int i1,int j1,int i2,int j2);
     void checkthesame(QKeyEvent *event);
+    void addscore(int *score,int Level1,int Level2);
     ~game();
 
 private slots:

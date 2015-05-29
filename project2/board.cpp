@@ -24,22 +24,7 @@ Board::~Board()
 {
     delete label;
 }
-/*
-void Board::click()
-{
-    if(clicked==false){
-        clicked=true;
-        (*Turn)+=1;
-        if((*Turn%2)==1){
-          //  label->setIcon(QIcon(QPixmap(":/O.png")));
-            emit Click(row,col,'O');
-        }else{
-          //  label->setIcon(QIcon(QPixmap(":/X.png")));
-            emit Click(row,col,'X');
-        }
-    }
-}
-*/
+
 void Board::init( ){
     srand((unsigned)time(NULL));
     exist =true;
@@ -326,7 +311,8 @@ void Board::disappear(){
 }
 
 void Board::overlape(int Level1,int Level2,int Color1,int Color2){
-    if(Color1 ==Color2 || Level1 ==Level2){
+     if(Color1 ==Color2 ){
+ //   if(Color1 ==Color2 || Level1 ==Level2){
             int Level =Level1+Level2;
             if (Level ==0){
                 level=Level+1;
@@ -420,77 +406,6 @@ int Board::showcolor(){
     return color;
 }
 
-void Board::keyPressEvent(QKeyEvent *event){
-        if(event->key() == QEvent::KeyPress){
-                switch(event->key())
-                {
-                  case Qt::Key_Left:
-                    label->setPixmap(QPixmap(":/2.png"));
-                    break;
-                  case Qt::Key_Right:
-                    label->setPixmap(QPixmap(":/2.png"));
-                    break;
-                  case Qt::Key_Up:
-                    for (int i = 0; i < 4; ++i){
-                        for (int j = 0; j < 4; ++j){
-                           // moveVertically(i,j,UP);
-                        }
-                    }
-                    break;
-                  case Qt::Key_Down:
-                    label->setPixmap(QPixmap(":/2.png"));
-                     break;
-                }
 
-        }
 
- }
-/*
-void Board::reset()
-{
-    pointsScoredLastRound = 0;
-    tileCollisionLastRound = false;
 
-    for (int i = 0; i < dimension ; ++i) {
-        for (int j = 0; j < dimension; ++j) {
-            delete board[i][j];
-            board[i][j] = NULL;
-        }
-    }
-
-    QVector<int> start = freePosition();
-    board[start[0]][start[1]] = new Tile();
-    start = freePosition();
-    board[start[0]][start[1]] = new Tile();
-
-}
-*/
-/*
-void Board::move(Direction direction)
-{
-    Board pre_move_board(*this);
-
-    prepareForNextMove();
-
-    switch (direction) {
-    case UP:
-        for (int i = 0; i < dimension; ++i)
-            for (int j = 0; j < dimension; ++j)
-                moveVertically(i,j,UP);
-        break;
-    case DOWN:
-        for (int i = dimension-1; i >= 0; --i)
-            for (int j = 0; j < dimension; ++j)
-                moveVertically(i,j,DOWN);
-        break;
-    case LEFT:
-        for (int i = 0; i < dimension; ++i)
-            for (int j = 0; j < dimension; ++j)
-                moveHorizontally(i,j,LEFT);
-        break;
-    case RIGHT:
-        for (int i = 0; i < dimension; ++i)
-            for (int j = dimension-1; j >= 0; --j)
-                moveHorizontally(i,j, RIGHT);
-    }
-*/

@@ -12,3 +12,13 @@ result::~result()
 {
     delete ui;
 }
+
+void result::on_pushButton_clicked()
+{
+    exit(0);
+}
+
+void result::on_pushButton_2_clicked()
+{
+
+}

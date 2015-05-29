@@ -17,10 +17,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>40</y>
-      <width>141</width>
-      <height>71</height>
+      <x>40</x>
+      <y>20</y>
+      <width>381</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="font">
@@ -29,14 +29,17 @@
      </font>
     </property>
     <property name="text">
-     <string>2048</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="pic.qrc">:/pic/11350249_929365817084090_2019942258_n.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>160</y>
+      <y>370</y>
       <width>101</width>
       <height>41</height>
      </rect>
@@ -72,6 +75,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="pic.qrc"/>
+ </resources>
  <connections/>
 </ui>

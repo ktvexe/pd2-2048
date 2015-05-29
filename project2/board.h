@@ -13,8 +13,6 @@ public:
     explicit Board(QWidget *parent, bool exist, int Row, int Col,int Level,int Color);
     ~Board();
     void init();
-  //  void reset();
-    void keyPressEvent(QKeyEvent *event);
     void appear( int Level,int Color);
     void disappear( );
     void overlape(int Level1,int Level2,int Color1,int Color2);
