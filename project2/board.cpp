@@ -97,6 +97,111 @@ bool Board::doexist(){
 
 }
 
+void Board::pics(int Level,int Color){
+    switch(Level){
+    case 0:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B0.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G0.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O0.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R0.png"));
+        break;
+    case 1:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B1.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G1.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O1.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R1.png"));
+        break;
+    case 2:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B2.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G2.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O2.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R2.png"));
+        break;
+    case 3:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B3.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G3.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O3.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R3.png"));
+        break;
+    case 4:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B4.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G4.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O4.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R4.png"));
+        break;
+    case 5:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B5.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G5.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O5.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R5.png"));
+        break;
+    case 6:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B6.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G6.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O6.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R6.png"));
+        break;
+    case 7:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B7.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G7.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O7.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R7.png"));
+        break;
+    case 8:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B8.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G8.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O8.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R8.png"));
+        break;
+    case 9:
+        if(Color == 0)
+                label->setPixmap(QPixmap(":/pic/B9.png"));
+        else if (Color ==1)
+                 label->setPixmap(QPixmap(":/pic/G9.png"));
+        else if(Color ==2)
+                 label->setPixmap(QPixmap(":/pic/O9.png"));
+         else
+                 label->setPixmap(QPixmap(":/pic/R9.png"));
+        break;
+    }
+}
+
 void Board::appear(int Level,int Color){
     exist =true;
     level =Level;
@@ -213,57 +318,90 @@ void Board::disappear(){
     label->setStyleSheet("border:1px solid;");
 }
 
-void Board::overlape(int Level1,int Level2){
-    int Level =Level1+Level2;
-    switch(Level){
-    case 0:
-        label->setPixmap(QPixmap(":/pic/B1.png"));
-        level =Level+1;
-        break;
-    case 1:
-        label->setPixmap(QPixmap(":/pic/B1.png"));
-        level =Level;
-        break;
-    case 2:
-        label->setPixmap(QPixmap(":/pic/B2.png"));
-        level =Level;
-        break;
-    case 3:
-        label->setPixmap(QPixmap(":/pic/B3.png"));
-        level =Level;
-        break;
-    case 4:
-        label->setPixmap(QPixmap(":/pic/B4.png"));
-        level =Level;
-        break;
-    case 5:
-        label->setPixmap(QPixmap(":/pic/B5.png"));
-        level =Level;
-        break;
-    case 6:
-        label->setPixmap(QPixmap(":/pic/B6.png"));
-        level =Level;
-        break;
-    case 7:
-        label->setPixmap(QPixmap(":/pic/B7.png"));
-        level =Level;
-        break;
-    case 8:
-        label->setPixmap(QPixmap(":/pic/B8.png"));
-        level =Level;
-        break;
-    case 9:
-        label->setPixmap(QPixmap(":/pic/B9.png"));
-        level =Level;
-        break;
-    default:
-        exist =false;
-        level =-1;
-        label->clear();
-        label->setStyleSheet("border:1px solid;");
-        break;
+void Board::overlape(int Level1,int Level2,int Color1,int Color2){
+    if(Color1 ==Color2 || Level1 ==Level2){
+            int Level =Level1+Level2;
+            if (Level ==0){
+                level=Level+1;
+                color=Color1;
+                pics(level,color);
+             }
+            else{
+                level=Level;
+                color=Color1;
+                pics(level,color);
 
+            }
     }
+    /*
+    else if(Level1 == Level2){
+            Level =Level1+Level2;
+            if (Level ==0){
+                pics(Level,Color1);
+                level=Level+1;
+                color=Color1;
+             }
+            else{
+                pics(Level,Color1);
+                level=Level;
+                color=Color1;
+            }
+    }
+    */
+
+
+
+            /*
+            switch(Level){
+            case 0:
+                label->setPixmap(QPixmap(":/pic/B1.png"));
+                level =Level+1;
+                break;
+            case 1:
+                label->setPixmap(QPixmap(":/pic/B1.png"));
+                level =Level;
+                break;
+            case 2:
+                label->setPixmap(QPixmap(":/pic/B2.png"));
+                level =Level;
+                break;
+            case 3:
+                label->setPixmap(QPixmap(":/pic/B3.png"));
+                level =Level;
+                break;
+            case 4:
+                label->setPixmap(QPixmap(":/pic/B4.png"));
+                level =Level;
+                break;
+            case 5:
+                label->setPixmap(QPixmap(":/pic/B5.png"));
+                level =Level;
+                break;
+            case 6:
+                label->setPixmap(QPixmap(":/pic/B6.png"));
+                level =Level;
+                break;
+            case 7:
+                label->setPixmap(QPixmap(":/pic/B7.png"));
+                level =Level;
+                break;
+            case 8:
+                label->setPixmap(QPixmap(":/pic/B8.png"));
+                level =Level;
+                break;
+            case 9:
+                label->setPixmap(QPixmap(":/pic/B9.png"));
+                level =Level;
+                break;
+            default:
+                exist =false;
+                level =-1;
+                label->clear();
+                label->setStyleSheet("border:1px solid;");
+                break;
+            }
+            */
+
 }
 
 

@@ -61,6 +61,14 @@ bool game::checkfull(){
         return false;
 }
 
+bool game:: checkcolorlevel(int i1,int j1,int i2,int j2){
+    if((board[i1][j1]->showlevel()==board[i1][j1]->showlevel())||(board[i1][j1]->showcolor()==board[i1][j1]->showcolor())){
+        return true;
+    }
+    else
+        return false;
+}
+
 void game::checkthesame(QKeyEvent *event){
     switch(event->key())
     {
@@ -69,40 +77,40 @@ void game::checkthesame(QKeyEvent *event){
                {
                     if(board[i][0]->showlevel()!=-1&&board[i][1]->showlevel()!=-1&&board[i][2]->showlevel()!=-1&&board[i][3]->showlevel()!=-1){         //four elements
                              if((board[i][0]->showlevel()==board[i][1]->showlevel())&&(board[i][2]->showlevel()==board[i][3]->showlevel())){                        //all the same
-                                 board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel());
-                                 board[i][1]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel());
+                                 board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel(),board[i][0]->showcolor(),board[i][1]->showcolor());
+                                 board[i][1]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel(),board[i][2]->showcolor(),board[i][3]->showcolor());
                                  board[i][2]->disappear();
                                  board[i][3]->disappear();
                              }
                              else if((board[i][0]->showlevel()==board[i][1]->showlevel())&&(board[i][2]->showlevel()!=board[i][3]->showlevel())){               //left two the same
-                                 board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel());
+                                 board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel(),board[i][0]->showcolor(),board[i][1]->showcolor());
                                  board[i][1]->appear(board[i][2]->showlevel(),board[i][2]->showcolor());
                                  board[i][2]->appear(board[i][3]->showlevel(),board[i][3]->showcolor());
                                  board[i][3]->disappear();
                              }
                              else if((board[i][1]->showlevel()==board[i][2]->showlevel())){                                                                                                         //mid two the same
-                                 board[i][1]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel());
+                                 board[i][1]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel(),board[i][1]->showcolor(),board[i][2]->showcolor());
                                  board[i][2]->appear(board[i][3]->showlevel(),board[i][3]->showcolor());
                                  board[i][3]->disappear();
                              }
                              else if((board[i][2]->showlevel()==board[i][3]->showlevel())){                                                                                                     //right two the same
-                                board[i][2]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel());
+                                board[i][2]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel(),board[i][2]->showcolor(),board[i][3]->showcolor());
                                 board[i][3]->disappear();
                              }
                    }
                    else if(board[i][0]->showlevel()!=-1&&board[i][1]->showlevel()!=-1&&board[i][2]->showlevel()!=-1){                                           //three elements
                            if((board[i][0]->showlevel()==board[i][1]->showlevel())){                                                                                                            //left two the same
-                               board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel());
+                               board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel(),board[i][0]->showcolor(),board[i][1]->showcolor());
                                board[i][1]->appear(board[i][2]->showlevel(),board[i][2]->showcolor());
                                board[i][2]->disappear();
                            }
                            else  if((board[i][1]->showlevel()==board[i][2]->showlevel())){                                                                                              //right two the same
-                               board[i][1]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel());
+                               board[i][1]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel(),board[i][1]->showcolor(),board[i][2]->showcolor());
                                board[i][2]->disappear();
                            }
                    }
                    else if(board[i][0]->showlevel()!=-1 && board[i][1]->showlevel()!=-1  && (board[i][0]->showlevel() == board[i][1]->showlevel())    ){        //two left elements are the same
-                           board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel());
+                           board[i][0]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel(),board[i][0]->showcolor(),board[i][1]->showcolor());
                            board[i][1]->disappear();
                    }
               }
@@ -112,22 +120,22 @@ void game::checkthesame(QKeyEvent *event){
                {
                     if(board[i][0]->showlevel()!=-1&&board[i][1]->showlevel()!=-1&&board[i][2]->showlevel()!=-1&&board[i][3]->showlevel()!=-1){             //four elements
                              if((board[i][0]->showlevel()==board[i][1]->showlevel())&&(board[i][2]->showlevel()==board[i][3]->showlevel())){                            //all the same
-                                 board[i][3]->overlape(board[i][3]->showlevel(),board[i][2]->showlevel());
-                                 board[i][2]->overlape(board[i][1]->showlevel(),board[i][0]->showlevel());
+                                 board[i][3]->overlape(board[i][3]->showlevel(),board[i][2]->showlevel(),board[i][3]->showcolor(),board[i][2]->showcolor());
+                                 board[i][2]->overlape(board[i][1]->showlevel(),board[i][0]->showlevel(),board[i][1]->showcolor(),board[i][0]->showcolor());
                                  board[i][1]->disappear();
                                  board[i][0]->disappear();
                              }
                              else if((board[i][0]->showlevel()==board[i][1]->showlevel())&&(board[i][2]->showlevel()!=board[i][3]->showlevel())){                   //left two the same
-                                 board[i][1]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel());
+                                 board[i][1]->overlape(board[i][0]->showlevel(),board[i][1]->showlevel(),board[i][0]->showcolor(),board[i][1]->showcolor());
                                  board[i][0]->disappear();
                              }
                              else if((board[i][1]->showlevel()==board[i][2]->showlevel())){                                                                                                             //mid two the same
-                                 board[i][2]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel());
+                                 board[i][2]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel(),board[i][1]->showcolor(),board[i][2]->showcolor());
                                  board[i][1]->appear(board[i][0]->showlevel(),board[i][0]->showcolor());
                                  board[i][0]->disappear();
                              }
                              else if((board[i][2]->showlevel()==board[i][3]->showlevel())){                                                                                                         //right two the same
-                                board[i][3]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel());
+                                board[i][3]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel(),board[i][2]->showcolor(),board[i][3]->showcolor());
                                 board[i][2]->appear(board[i][1]->showlevel(),board[i][1]->showcolor());
                                 board[i][1]->appear(board[i][0]->showlevel(),board[i][0]->showcolor());
                                 board[i][0]->disappear();
@@ -135,17 +143,17 @@ void game::checkthesame(QKeyEvent *event){
                    }
                    else if(board[i][0]->showlevel()!=-1&&board[i][1]->showlevel()!=-1&&board[i][2]->showlevel()!=-1){                                                   //three elements
                            if((board[i][2]->showlevel()==board[i][3]->showlevel())){                                                                                                                //right two the same
-                               board[i][3]->overlape(board[i][3]->showlevel(),board[i][2]->showlevel());
+                               board[i][3]->overlape(board[i][3]->showlevel(),board[i][2]->showlevel(),board[i][3]->showcolor(),board[i][2]->showcolor());
                                board[i][2]->appear(board[i][1]->showlevel(),board[i][1]->showcolor());
                                board[i][1]->disappear();
                            }
                            else  if((board[i][1]->showlevel()==board[i][2]->showlevel())){                                                                                                  //left two the same
-                               board[i][2]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel());
+                               board[i][2]->overlape(board[i][1]->showlevel(),board[i][2]->showlevel(),board[i][1]->showcolor(),board[i][2]->showcolor());
                                board[i][1]->disappear();
                            }
                    }
                    else if(board[i][2]->showlevel()!=-1 && board[i][3]->showlevel()!=-1  && (board[i][2]->showlevel() == board[i][3]->showlevel())    ){        //two right elements are the same
-                           board[i][3]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel());
+                           board[i][3]->overlape(board[i][2]->showlevel(),board[i][3]->showlevel(),board[i][2]->showcolor(),board[i][3]->showcolor());
                            board[i][2]->disappear();
                    }
               }
@@ -155,40 +163,40 @@ void game::checkthesame(QKeyEvent *event){
                {
                     if(board[0][j]->showlevel()!=-1&&board[1][j]->showlevel()!=-1&&board[2][j]->showlevel()!=-1&&board[3][j]->showlevel()!=-1){         //four elements
                              if((board[0][j]->showlevel()==board[1][j]->showlevel())&&(board[2][j]->showlevel()==board[3][j]->showlevel())){                        //all the same
-                                 board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel());
-                                 board[1][j]->overlape(board[2][j]->showlevel(),board[3][j]->showlevel());
+                                 board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel(),board[0][j]->showcolor(),board[1][j]->showcolor());
+                                 board[1][j]->overlape(board[2][j]->showlevel(),board[3][j]->showlevel(),board[2][j]->showcolor(),board[3][j]->showcolor());
                                  board[2][j]->disappear();
                                  board[3][j]->disappear();
                              }
                              else if((board[0][j]->showlevel()==board[1][j]->showlevel())&&(board[2][j]->showlevel()!=board[3][j]->showlevel())){               //up two the same
-                                 board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel());
+                                 board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel(),board[0][j]->showcolor(),board[1][j]->showcolor());
                                  board[1][j]->appear(board[2][j]->showlevel(),board[2][j]->showcolor());
                                  board[2][j]->appear(board[3][j]->showlevel(),board[3][j]->showcolor());
                                  board[3][j]->disappear();
                              }
                              else if((board[1][j]->showlevel()==board[2][j]->showlevel())){                                                                                                     //mid two the same
-                                 board[1][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel());
+                                 board[1][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel(),board[1][j]->showcolor(),board[2][j]->showcolor());
                                  board[2][j]->appear(board[3][j]->showlevel(),board[3][j]->showcolor());
                                  board[3][j]->disappear();
                              }
                              else if((board[2][j]->showlevel()==board[3][j]->showlevel())){                                                                                                 //down two the same
-                                board[2][j]->overlape(board[2][j]->showlevel(),board[3][j]->showlevel());
+                                board[2][j]->overlape(board[2][j]->showlevel(),board[3][j]->showlevel(),board[2][j]->showcolor(),board[3][j]->showcolor());
                                 board[3][j]->disappear();
                              }
                    }
                    else if(board[0][j]->showlevel()!=-1&&board[1][j]->showlevel()!=-1&&board[2][j]->showlevel()!=-1){                                           //three elements
                            if((board[0][j]->showlevel()==board[1][j]->showlevel())){                                                                                                        //up two the same
-                               board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel());
+                               board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel(),board[0][j]->showcolor(),board[1][j]->showcolor());
                                board[1][j]->appear(board[2][j]->showlevel(),board[2][j]->showcolor());
                                board[2][j]->disappear();
                            }
                            else  if((board[1][j]->showlevel()==board[2][j]->showlevel())){                                                                                                  //down two the same
-                               board[1][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel());
+                               board[1][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel(),board[1][j]->showcolor(),board[2][j]->showcolor());
                                board[2][j]->disappear();
                            }
                    }
                    else if(board[0][j]->showlevel()!=-1 && board[1][j]->showlevel()!=-1  && (board[0][j]->showlevel() == board[1][j]->showlevel())    ){            //two elements are the same
-                           board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel());
+                           board[0][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel(),board[0][j]->showcolor(),board[1][j]->showcolor());
                            board[1][j]->disappear();
                    }
               }
@@ -198,40 +206,40 @@ void game::checkthesame(QKeyEvent *event){
                {
                     if(board[0][j]->showlevel()!=-1&&board[1][j]->showlevel()!=-1&&board[2][j]->showlevel()!=-1&&board[3][j]->showlevel()!=-1){             //four elements
                              if((board[3][j]->showlevel()==board[2][j]->showlevel())&&(board[1][j]->showlevel()==board[0][j]->showlevel())){                        //all the same
-                                 board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel());
-                                 board[2][j]->overlape(board[1][j]->showlevel(),board[0][j]->showlevel());
+                                 board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel(),board[3][j]->showcolor(),board[2][j]->showcolor());
+                                 board[2][j]->overlape(board[1][j]->showlevel(),board[0][j]->showlevel(),board[1][j]->showcolor(),board[0][j]->showcolor());
                                  board[1][j]->disappear();
                                  board[0][j]->disappear();
                              }
                              else if((board[2][j]->showlevel()==board[3][j]->showlevel())&&(board[0][j]->showlevel()!=board[1][j]->showlevel())){               //down two the same
-                                 board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel());
+                                 board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel(),board[3][j]->showcolor(),board[2][j]->showcolor());
                                  board[2][j]->appear(board[1][j]->showlevel(),board[1][j]->showcolor());
                                  board[1][j]->appear(board[0][j]->showlevel(),board[0][j]->showcolor());
                                  board[0][j]->disappear();
                              }
                              else if((board[1][j]->showlevel()==board[2][j]->showlevel())){                                                                                                     //mid the same
-                                 board[2][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel());
+                                 board[2][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel(),board[1][j]->showcolor(),board[2][j]->showcolor());
                                  board[1][j]->appear(board[0][j]->showlevel(),board[0][j]->showcolor());
                                  board[0][j]->disappear();
                              }
                              else if((board[0][j]->showlevel()==board[1][j]->showlevel())){                                                                                                     //up two the same
-                                board[1][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel());
+                                board[1][j]->overlape(board[0][j]->showlevel(),board[1][j]->showlevel(),board[0][j]->showcolor(),board[1][j]->showcolor());
                                 board[0][j]->disappear();
                              }
                    }
                    else if(board[1][j]->showlevel()!=-1&&board[2][j]->showlevel()!=-1&&board[3][j]->showlevel()!=-1){                                           //three elements
                            if((board[3][j]->showlevel()==board[2][j]->showlevel())){                                                                                                        //down two the same
-                               board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel());
+                               board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel(),board[3][j]->showcolor(),board[2][j]->showcolor());
                                board[2][j]->appear(board[1][j]->showlevel(),board[1][j]->showcolor());
                                board[1][j]->disappear();
                            }
                            else  if((board[1][j]->showlevel()==board[2][j]->showlevel())){                                                                                           //up two the same
-                               board[2][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel());
+                               board[2][j]->overlape(board[1][j]->showlevel(),board[2][j]->showlevel(),board[1][j]->showcolor(),board[2][j]->showcolor());
                                board[1][j]->disappear();
                            }
                    }
                    else if(board[2][j]->showlevel()!=-1 && board[3][j]->showlevel()!=-1  && (board[2][j]->showlevel() == board[3][j]->showlevel())    ){                //two elements are the same
-                           board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel());
+                           board[3][j]->overlape(board[3][j]->showlevel(),board[2][j]->showlevel(),board[3][j]->showcolor(),board[2][j]->showcolor());
                            board[2][j]->disappear();
                    }
          }

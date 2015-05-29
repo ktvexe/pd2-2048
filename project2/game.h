@@ -20,6 +20,7 @@ public:
     explicit   game(QWidget *parent,result* res) ;
     game(QWidget *parent);
     bool checkfull();
+    bool checkcolorlevel(int i1,int j1,int i2,int j2);
     void checkthesame(QKeyEvent *event);
     ~game();
 

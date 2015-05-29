@@ -17,8 +17,9 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void appear( int Level,int Color);
     void disappear( );
-    void overlape(int Level1,int Level2);
+    void overlape(int Level1,int Level2,int Color1,int Color2);
     bool doexist();
+    void pics(int Level,int Color);
 
     int showlevel();
     int showcolor();
