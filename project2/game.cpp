@@ -23,7 +23,7 @@ game::game(QWidget *parent,result* res) :
      score =0;
 
     int i , j;
-    int level=-1,color =0;
+    int level=-1,color =-1;
     srand((unsigned)time(NULL));
     bool exist =false;
     for(int i=0;i<4;++i){
@@ -444,6 +444,7 @@ void game::on_pushButton_clicked()
 
          int i = rand() % 4;
          int j = rand() % 4;
-         ui->label_2->setText("0");
+         score =0;
+         ui->label_2->setText(QString::number(score));
          board[i][j]->init();
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>482</width>
-    <height>500</height>
+    <width>380</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>481</width>
-     <height>501</height>
+     <width>381</width>
+     <height>411</height>
     </rect>
    </property>
    <property name="font">
@@ -27,18 +27,24 @@
      <pointsize>24</pointsize>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="pic.qrc">:/pic/11329004_929340533753285_1553530282_n.jpg</pixmap>
+    <pixmap resource="pic.qrc">:/pic/11348983_929375150416490_910690556_n.jpg</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>390</y>
+     <x>140</x>
+     <y>330</y>
      <width>101</width>
      <height>61</height>
     </rect>

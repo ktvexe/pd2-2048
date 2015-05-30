@@ -17,7 +17,6 @@ class game : public QWidget
 
 public:
     int score;
-   //  void move(QKeyEvent *event);
     explicit   game(QWidget *parent,result* res) ;
     game(QWidget *parent);
     bool checkfull();

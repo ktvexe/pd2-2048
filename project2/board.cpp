@@ -14,9 +14,8 @@ Board::Board(QWidget *parent, bool Exist, int Row, int Col,int Level,int Color) 
     label=new QLabel(parent);
     label->setGeometry(95*col+46,95*row+71,90,90);
     label->setStyleSheet("border:1px solid;");
- //   label->setStyleSheet("background-color: yellow");
     exist=Exist;
-   // connect(label,SIGNAL(keyPressEvent()),this,SLOT(click()));
+
 }
 
 

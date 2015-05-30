@@ -21,19 +21,12 @@ public:
 
     int showlevel();
     int showcolor();
-signals:
- //   void Click(int row,int col,char symbol);
-
-public slots:
- //   void click();
 
 private:
    QLabel *label;
     QPushButton *button;
     int row,col,level,color;
     bool exist;
-    bool clicked;
-
 };
 
 #endif // BOARD_H
