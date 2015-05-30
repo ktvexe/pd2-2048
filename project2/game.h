@@ -35,10 +35,6 @@ private:
     Board *board[4][4];
     void keyPressEvent(QKeyEvent *event);
 
-    int turn;
-    char Symbols[4][4];
-    char checkWin();
-
 };
 
 #endif // GAME_H
