@@ -17,7 +17,6 @@ class game : public QWidget
 
 public:
     int score;
-   //  void move(QKeyEvent *event);
     explicit   game(QWidget *parent,result* res) ;
     game(QWidget *parent);
     bool checkfull();
@@ -26,6 +25,7 @@ public:
     void addscore(int *score,int Level1,int Level2);
     ~game();
 
+private slots:
     void on_pushButton_clicked();
 
 private:
